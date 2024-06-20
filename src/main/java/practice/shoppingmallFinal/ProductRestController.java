@@ -1,9 +1,7 @@
 package practice.shoppingmallFinal;
 
 import jakarta.validation.Valid;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class ProductRestController {
@@ -15,7 +13,12 @@ public class ProductRestController {
     }
 
     @PostMapping("/v1/products")
-    public ProductCreateResponseDto create (@Valid @RequestBody ProductCreateRequestDto requestDto) {
+    public ProductDetailResponseDto create (@Valid @RequestBody ProductCreateRequestDto requestDto) {
         return productService.create(requestDto);
+    }
+
+    @GetMapping("v1/products/{productId}")
+    public ProductDetailResponseDto findOne (@PathVariable Long productId) {
+        return productService.findOne(productId);
     }
 }

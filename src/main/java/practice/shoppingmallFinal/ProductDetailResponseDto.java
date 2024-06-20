@@ -4,14 +4,14 @@ import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.List;
 
-public record ProductCreateResponseDto(
+public record ProductDetailResponseDto(
         Long productId,
         String name,
         long price,
         String seller,
         String brand,
         DeliveryChargeType deliveryChargeType,
-        List<ProductCreateResponseDto.ProductOptionDto> options,
+        List<ProductDetailResponseDto.ProductOptionDto> options,
         LocalDate deliveryETA,
         OffsetDateTime createdAt
 ) {
