@@ -102,6 +102,12 @@ public class ProductService {
     }
 
     // 상품 삭제
+    public void delete(Long productId) {
+        if (!productRepository.existsById(productId)) {
+            throw new NoSuchElementException("해당 아이디를 가진 상품이 존재하지 않습니다.");
+        }
+        productRepository.deleteById(productId);
+    }
 
 
 }
