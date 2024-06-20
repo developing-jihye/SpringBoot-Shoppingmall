@@ -60,7 +60,18 @@ public class ProductService {
         return responseDto;
     }
 
-    // 상품 목록 조회
+    // 상품 목록 조회 (현실에서 거의 사용하지 않는 기능)
+    public List<ProductResponseDto> findAll() {
+        List<Product> products = productRepository.findAll();
+
+        List<ProductResponseDto> responseDtos = products.stream().map(product -> new ProductResponseDto(
+                product.getProductId(),
+                product.getName(),
+                product.getPrice(),
+                product.getDeliveryChargeType()
+        )).toList();
+        return responseDtos;
+    }
 
     // 상품 상세 조회
     public ProductDetailResponseDto findOne(Long prodictId) {
