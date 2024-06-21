@@ -8,7 +8,7 @@ import java.util.List;
 @RestController
 public class ProductRestController {
 
-    ProductService productService;
+    private final ProductService productService;
 
     public ProductRestController(ProductService productService) {
         this.productService = productService;

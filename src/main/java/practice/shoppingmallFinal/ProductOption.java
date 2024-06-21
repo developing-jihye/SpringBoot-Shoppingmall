@@ -9,8 +9,10 @@ public class ProductOption {
     // 필드
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @NotNull
     private String optionName;
+
     @NotNull
     private String optionValue;
 
@@ -20,8 +22,8 @@ public class ProductOption {
     @ManyToOne
     Product product;
 
-    // 생성자
-    public ProductOption() {
+    // 기본 생성자
+    protected ProductOption() {
     }
 
     // 생성자 오버로드
@@ -31,7 +33,7 @@ public class ProductOption {
         this.maximumBuyCount = maximumBuyCount;
     }
 
-    // setter 필요함: 소속 정할 때
+    // setter 필요함: 소속 정할 때 필요
     public void setProduct(Product product) {
         this.product = product;
     }

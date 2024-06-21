@@ -27,7 +27,7 @@ public class Product {
     @Pattern(regexp = "\\S+")
     private String brand;
 
-    @NotNull
+    @NotNull @Enumerated(EnumType.STRING)
     private DeliveryChargeType deliveryChargeType;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
@@ -37,7 +37,7 @@ public class Product {
     private OffsetDateTime createdAt = OffsetDateTime.now();
 
     // 기본 생성자
-    public Product() {
+    protected Product() {
     }
 
     // 생성자 오버로드
